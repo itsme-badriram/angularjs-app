@@ -1,0 +1,46 @@
+<body>
+  <md-dialog style="width: 700px">
+    <form ng-cloak>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>Edit Config</h2>
+          <span flex></span>
+        </div>
+      </md-toolbar>
+
+      <md-dialog-content>
+        <md-content layout-padding>
+          <md-input-container>
+            <label>Config</label>
+            <md-select ng-model="config" ng-change="configChange()">
+              <md-option ng-repeat="config in model" ng-value="config.value">
+                {{config.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <div ng-show="showConfigModel">
+            <md-input-container class="md-block">
+              <label>DB</label>
+              <input ng-model="configModel.db" />
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Config Name</label>
+              <input ng-model="configModel.name" />
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Value</label>
+              <input ng-model="configModel.value" />
+            </md-input-container>
+          </div>
+          <md-button class="md-raised md-primary" ng-click="answer('useful')">
+            Save
+          </md-button>
+          <md-button class="md-raised" ng-click="answer('not useful')">
+            Cancel
+          </md-button>
+        </md-content>
+      </md-dialog-content>
+    </form>
+  </md-dialog>
+</body>
